@@ -87,7 +87,7 @@ def find_config():
     possibledirs = [ dotconfig, doti3, etcxdgi3, etci3 ]
     if args.verbose:
         print('Searching for i3 config file....')
-    
+
     for config in possibledirs:
         if args.verbose:
             print('Looking in {} ...'.format(config))
@@ -120,7 +120,7 @@ def parse(config):
     with open(str(config)) as f:
         for line in f:
             # If line is not comment,
-            if (line[:1] is not '#'):
+            if (line[:1] != '#'):
                 # See if there is a mod variable
                 if ('Mod4' in line or 'Mod1' in line) and 'set' in line:
                     mod_var_check = re.search('\B\$\w+', line, re.IGNORECASE)
